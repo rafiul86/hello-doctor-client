@@ -33,7 +33,7 @@ const Testimonial = () => {
                 <h3 style={{color : "blue"}}>Testimonial</h3>
                 <h1>What's our Patient <br/> Says</h1>
             </div>
-            <Grid className="mt-5" container spacing={8}>
+            <Grid className=" offset-md-2 ms-5 mt-5" container spacing={8}>
                 {
                     opinions.map(opinion=><Grid item ><TestimonialDetails opinion={opinion}></TestimonialDetails></Grid>)
                 }
