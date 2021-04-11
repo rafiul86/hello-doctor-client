@@ -1,13 +1,14 @@
 import { Grid } from '@material-ui/core';
 import React from 'react';
 import exception from '../../../images/exceptional.png'
+import './Exception.css'
 
 const Exception = () => {
     return (
         <section className="offset-md-2 ms-5 mb-5 align-items-center">
            <Grid className="ms-auto justify-content-center" container spacing={8}>
-               <Grid item xs={8} md={6} lg={4}>
-                <img style={{borderRadius : "7px"}} className="img-fluid" src={exception} alt=""/>
+               <Grid item xs={8} md={6} lg={3}>
+                <img style={{borderRadius : "7px"}} className="img-fluid exceptional-img" src={exception} alt=""/>
                </Grid>
                <Grid item xs={8} md={6} lg={5} className="ms-5 mt-5">
                    <h2>Exceptional Dental care, on your Terms</h2>
