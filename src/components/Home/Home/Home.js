@@ -3,6 +3,7 @@ import Appointment from '../Appointment/Appointment';
 import Blog from '../Blog/Blog';
 import ContactForm from '../ContactForm/ContactForm';
 import Exception from '../Exception/Exception';
+import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import Specialists from '../Specialists/Specialists';
 import Testimonial from '../Testimonial/Testimonial';
@@ -20,6 +21,7 @@ const Home = () => {
             <Blog/>
             <Specialists/>
             <ContactForm/>
+            <Footer/>
         </div>
     );
 };
