@@ -1,10 +1,14 @@
 import React from 'react';
+import Exception from '../Exception/Exception';
 import Header from '../Header/Header';
+import Services from './Services/Services';
 
 const Home = () => {
     return (
         <div>
-            <Header></Header>
+            <Header/>
+            <Services/>
+            <Exception/>
         </div>
     );
 };
