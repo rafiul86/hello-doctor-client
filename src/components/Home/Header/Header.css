@@ -1,0 +1,22 @@
+/* .design{
+    background: repeating-linear-gradient(#74ABDD, #74ABDD 49.9%, #498DCB 50.1%, #498DCB 100%);
+} */
+
+.design {
+    height:700px;
+    position:relative;
+    background-image: url('../../../images/chairbg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.design::after {
+    height:700px;
+    content:' ';
+    position: absolute;
+    top: 0;
+    width: 35%;
+    right : 0;
+    background : blue;
+    z-index : -50 ;
+    opacity : .7
+}
