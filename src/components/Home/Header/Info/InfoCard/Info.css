@@ -1,0 +1,22 @@
+.info-primary{
+    background-color: #2E64FE;
+    color: antiquewhite;
+    border-radius: 5px;
+    width : 300px;
+    height : 150px;
+}
+
+.info-dark{
+    background-color: #2E2E2E;
+    color: antiquewhite;
+    border-radius: 5px;
+    width : 300px;
+    height : 150px;
+}
+.icon{
+    font-size: 3em;
+}
+.info-container{
+    padding: 40px;
+    margin-left: 40px;
+}
