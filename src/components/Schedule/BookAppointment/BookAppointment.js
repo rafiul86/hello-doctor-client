@@ -47,7 +47,7 @@ const BookAppointment = ({selectedDate}) => {
             <div>
                 <Grid container spacing={10}>
                 {
-                    bookingInfos.map(bookingInfo => <Grid item xs={10} md={6} lg={4}><BookingDetails key={bookingInfos.id} bookingInfo={bookingInfo} ></BookingDetails></Grid>)
+                    bookingInfos.map(bookingInfo => <Grid item xs={10} md={6} lg={4}><BookingDetails date={selectedDate} key={bookingInfos.id} bookingInfo={bookingInfo} ></BookingDetails></Grid>)
                 }
                 </Grid>
             </div>

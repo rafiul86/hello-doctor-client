@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import AppointmentForm from '../../AppointmentForm/AppointmentForm';
 
 
 
@@ -24,7 +25,14 @@ const useStyles = makeStyles({
       marginBottom: 12,
     },
   });
-const BookingDetails = ({bookingInfo}) => {
+const BookingDetails = ({bookingInfo ,date}) => {
+    const [modalIsOpen,setIsOpen] = useState(false);
+    function openModal() {
+      setIsOpen(true);
+    }
+    function closeModal(){
+      setIsOpen(false);
+    }
     const classes = useStyles();
     return (
         <div className="text-center justify-content-center">
@@ -36,7 +44,8 @@ const BookingDetails = ({bookingInfo}) => {
         <Typography variant="body2" component="p">
           {bookingInfo.time}
         </Typography>
-        <Button variant="contained" className="p-4 mt-1 mb-1" color="primary">Book Now</Button>
+        <Button variant="contained" onClick={openModal} className="p-4 mt-1 mb-1" color="primary">Book Now</Button>
+        <AppointmentForm date={date} modalIsOpen={modalIsOpen} appointmentOn={bookingInfo.treatment} openModal={openModal} closeModal={closeModal}></AppointmentForm>
         <Typography className={classes.pos} color="textSecondary">
           {bookingInfo.space}
         </Typography>
