@@ -4,8 +4,9 @@ import Home from './components/Home/Home/Home';
 import Schedule from './components/Schedule/Schedule';
 import Blog from './components/Home/Blog/Blog';
 import Appointment from './components/Home/Appointment/Appointment';
-
-
+import Form from './components/Login/Form';
+import SignIn from './components/Login/SignIn'
+import Reset from './components/Login/Reset'
 
 function App() {
   return (
@@ -25,6 +26,15 @@ function App() {
           </Route>
           <Route path="/appointment">
           <Appointment/>
+          </Route>
+          <Route path="/form">
+          <Form/>
+          </Route>
+          <Route path="/sign">
+          <SignIn/>
+          </Route>
+          <Route path="/reset">
+          <Reset/>
           </Route>
         </Switch>
     </Router>

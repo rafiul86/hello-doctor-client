@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import firebase from "firebase/app";
 import "firebase/auth";
 import { Link  } from "react-router-dom";
-import firebaseConfig from '../firebase.config';
+import firebaseConfig from './firebase.config'
 import './Form.css'
 
 if (!firebase.apps.length) {
@@ -56,7 +56,7 @@ const SignIn = () => {
    
     return (
              <div>
-                 <h3>Don't have an account ? <Link to="/signup">Signup here</Link> </h3> 
+                 <h3>Don't have an account ? <Link to="/form">Signup here</Link> </h3> 
                  <form onSubmit={handleSubmitForm} >
                 <input className="input" type="email" name="email" onBlur={handleBlurForm} placeholder="Email" required/>
                 <br/>

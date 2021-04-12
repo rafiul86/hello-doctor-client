@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import firebase from "firebase/app";
 import "firebase/auth";
-import firebaseConfig from '../firebase.config';
+import firebaseConfig from './firebase.config'
 import './Form.css';
 
 

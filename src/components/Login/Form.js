@@ -4,7 +4,7 @@ import "firebase/auth";
 import { Link  } from "react-router-dom";
 import './Form.css'
 import Google from './Google';
-import firebaseConfig from '../firebase.config';
+import firebaseConfig from './firebase.config'
 import Facebook from './Facebook';
 
 
@@ -12,9 +12,6 @@ if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig)
  }
 
-
-
- 
 const Form = () => {
     const [user , setUser] = useState({
         name : '',

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import firebaseConfig from '../firebase.config';
+import firebaseConfig from './firebase.config'
 import firebase from "firebase/app";
 import "firebase/auth";
 
@@ -21,6 +21,7 @@ auth.sendPasswordResetEmail(emailAddress).then(function() {
     }
     return (
         <div>
+            <h1>Please input your email here</h1>
                 <input type="text" name="email" id="mail"/>
                 <button onClick={handleReset}>Submit</button>
                 <p>{state.message}</p>
