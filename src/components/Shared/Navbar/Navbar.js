@@ -1,5 +1,10 @@
 import React from 'react';
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 const Navbar = () => {
     return (
             <nav className="navbar navbar-expand-lg navbar-light">
@@ -10,22 +15,22 @@ const Navbar = () => {
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <a className="nav-link ms-auto me-5 fs-5 fw-bolder" aria-current="page" href="#">Home</a>
+          <Link className="nav-link ms-auto me-5 fs-5 fw-bolder" to='/home'>Home</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link ms-auto me-5 fs-5 fw-bolder" href="#">About</a>
+        <Link className="nav-link ms-auto me-5 fs-5 fw-bolder" to='/appointment'>Book Appointment</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link ms-auto me-5 fs-5 fw-bolder" href="#">Services</a>
+        <Link className="nav-link ms-auto me-5 fs-5 fw-bolder" to='/home'>Services</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link ms-auto me-5 fs-5 fw-bolder" href="#">Review</a>
+        <Link className="nav-link ms-auto me-5 fs-5 fw-bolder" to='/home'>Contacts</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link ms-auto me-5 fs-5 fw-bolder" href="#">Blog</a>
+        <Link className="nav-link ms-auto me-5 fs-5 fw-bolder" to='/blog'>Blog</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link ms-auto me-5 fs-5 fw-bolder" href="#">Contacts</a>
+        <Link className="nav-link ms-auto me-5 fs-5 fw-bolder" to='/form'>Login</Link>
         </li>
         
       </ul>
