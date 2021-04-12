@@ -19,7 +19,10 @@ const customStyles = {
 const AppointmentForm = ({closeModal,date,openModal,modalIsOpen,appointmentOn}) => {
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+  const onSubmit = data => {
+    console.log(data)
+    closeModal()
+  }
     return (
         <div>
         <Modal
