@@ -3,6 +3,7 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebase.config'
 import './Form.css';
+import { useHistory } from 'react-router';
 
 
 
@@ -12,6 +13,7 @@ if (!firebase.apps.length) {
  }
 
 const Facebook = () => {
+    const history = useHistory()
     const [user,setUser] = useState({
         isSignedIn : false,
         name : '',
@@ -30,6 +32,7 @@ const Facebook = () => {
     newUser.email = email;
     newUser.photo = photoURL
     setUser(newUser)
+    history.push('/')
   }).catch((error) => {
     
   });
