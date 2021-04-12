@@ -7,9 +7,17 @@ import Appointment from './components/Home/Appointment/Appointment';
 import Form from './components/Login/Form';
 import SignIn from './components/Login/SignIn'
 import Reset from './components/Login/Reset'
+import { createContext, useState } from 'react';
+import PrivateRoute from './components/Login/PrivateRoute';
 
+
+
+
+ export const GlobalContext = createContext()
 function App() {
+  const [loggedInUser , setLoggedInUser] = useState({})
   return (
+    <GlobalContext.Provider value={[loggedInUser , setLoggedInUser]}>
     <Router>
         <Switch>
           <Route exact path="/">
@@ -18,16 +26,16 @@ function App() {
           <Route path="/home">
             <Home />
           </Route>
-          <Route path="/schedule">
+          <PrivateRoute path="/schedule">
           <Schedule/>
-          </Route>
+          </PrivateRoute>
           <Route path="/blog">
           <Blog/>
           </Route>
           <Route path="/appointment">
           <Appointment/>
           </Route>
-          <Route path="/form">
+          <Route path="/login">
           <Form/>
           </Route>
           <Route path="/sign">
@@ -38,6 +46,7 @@ function App() {
           </Route>
         </Switch>
     </Router>
+    </GlobalContext.Provider>
   );
 }
 

@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebase.config'
 import './Form.css';
-import { useHistory } from 'react-router';
+import { useHistory, useLocation } from 'react-router';
+import { GlobalContext } from '../../App';
 
 
 
@@ -13,7 +14,10 @@ if (!firebase.apps.length) {
  }
 
 const Google = () => {
+    const [loggedInUser , setLoggedInUser] = useContext(GlobalContext)
     const history = useHistory()
+    let location = useLocation()
+    let { from } = location.state || { from: { pathname: "/" } };
     const [user,setUser] = useState({
         isSignedIn : false,
         name : '',
@@ -32,7 +36,8 @@ const Google = () => {
     newUser.email = email;
     newUser.photo = photoURL
     setUser(newUser)
-    history.push('/')
+    setLoggedInUser(newUser)
+    history.replace(from)
   }).catch((error) => {
     
   });
