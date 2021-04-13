@@ -53,6 +53,7 @@ const Form = () => {
     newUser.error =''
     setUser(newUser)
     setLoggedInUser(newUser)
+    handleLink()
     history.replace(from)
   })
   .catch((error) => {
@@ -69,7 +70,7 @@ const Form = () => {
         var user = firebase.auth().currentUser;
 
         user.sendEmailVerification().then(function() {
-            console.log("Email sent to the ....", user.email) 
+            alert("Email sent to the ....", user.email) 
         }).catch(function(error) {
           console.log(error)
         });
@@ -114,7 +115,6 @@ const Form = () => {
             </form>
            <Google></Google>
            <Facebook></Facebook>
-           <button onClick={handleLink}>Send Link</button>
            <button onClick={handleshow}>Show user info</button>
            
         </div>
