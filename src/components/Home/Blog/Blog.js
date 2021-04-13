@@ -1,5 +1,6 @@
 import { Grid } from '@material-ui/core';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import BlogDetails from './BlogDetails/BlogDetails';
 
 const Blog = () => {
@@ -34,6 +35,7 @@ const Blog = () => {
                     blogData.map(blog=><Grid item ><BlogDetails blog={blog}></BlogDetails></Grid>)
                 }
             </Grid>
+            <Link to='/'>Back to Homepage</Link>
         </section>
     );
 };

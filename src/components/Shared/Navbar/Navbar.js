@@ -11,6 +11,13 @@ import { GlobalContext } from '../../../App'
 
 const Navbar = () => {
   const [loggedInUser , setLoggedInUser] = useContext(GlobalContext)
+      const history = useHistory()
+  const handleLogout = () =>{
+    const newLogger = {...loggedInUser}
+    newLogger.email = ''
+    setLoggedInUser(newLogger)
+    history.push('/')
+  }
     return (
             <nav className="navbar navbar-expand-lg navbar-light">
   <div className="container-fluid ">
@@ -35,9 +42,10 @@ const Navbar = () => {
         <Link className="nav-link ms-auto me-5 fs-5 fw-bolder" to='/blog'>Blog</Link>
         </li>
         <li className="nav-item">
-        <Link className="nav-link ms-auto me-5 fs-5 fw-bolder" to='/login'>{loggedInUser.email ? "Log out" : "Login" }</Link>
+        {
+         loggedInUser.email ?  <Link className="nav-link ms-auto me-5 fs-5 fw-bolder" onClick={handleLogout}>Logout</Link> : <Link className="nav-link ms-auto me-5 fs-5 fw-bolder" to='/login'>Login</Link>
+        }
         </li>
-        
       </ul>
     </div>
   </div>
