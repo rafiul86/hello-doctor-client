@@ -1,17 +1,26 @@
 import { Grid } from '@material-ui/core';
 import PatientData from './PatientData/PatientData';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
 import Sidebar from './Sidebar/Sidebar';
 
 
   
 const Dashboard = () => {
-    const [date, setDate] = useState(new Date());
-   const  handleDateChange = (data)=>{
-
-    setDate(data)
+    const [selectedDate, setSelectedDate] = useState(new Date());
+    const [appointment,setAppointment] = useState([])
+   const  handleDateChange = (date)=>{
+    setSelectedDate(date)
    }
+        useEffect(()=>{
+                fetch('http://localhost:5000/appointmentByDate',{
+                    method : "POST",
+                    headers : {'content-type' : 'application/json'},
+                    body : JSON.stringify({date : selectedDate})
+                })
+                .then(res => res.json())
+                .then(app => setAppointment(app))
+        },[selectedDate])
     return (
         <section>
             <Grid container spacing={2}>
@@ -25,7 +34,7 @@ const Dashboard = () => {
       />
                 </Grid>
             <Grid item xs={10} md={5} lg={6}>
-                <PatientData/>
+                <PatientData appointment={appointment} />
                 </Grid>
             </Grid>
         </section>

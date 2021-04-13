@@ -11,7 +11,6 @@ import { GlobalContext } from '../../../App'
 
 const Navbar = () => {
   const token = sessionStorage.getItem('token')
-  console.log(token)
   const [loggedInUser , setLoggedInUser] = useContext(GlobalContext)
       const history = useHistory()
   const handleLogout = () =>{

@@ -1,9 +1,12 @@
 import React from 'react';
+import PatientDetails from './PatientDetails/PatientDetails';
 
-const PatientData = () => {
+const PatientData = ({appointment}) => {
     return (
         <div>
-            <h1>Patient data</h1>
+            {
+                appointment.map(app =><PatientDetails key={app._id} app={app}></PatientDetails> )
+            }
         </div>
     );
 };
