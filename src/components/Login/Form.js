@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import firebase from "firebase/app";
 import "firebase/auth";
-import { Link  } from "react-router-dom";
+import { Link, useHistory, useLocation  } from "react-router-dom";
 import './Form.css'
 import Google from './Google';
 import firebaseConfig from './firebase.config'
 import Facebook from './Facebook';
+import { GlobalContext } from '../../App';
 
 
 if (!firebase.apps.length) {
@@ -13,6 +14,10 @@ if (!firebase.apps.length) {
  }
 
 const Form = () => {
+    const [loggedInUser , setLoggedInUser] = useContext(GlobalContext)
+    const history = useHistory()
+    let location = useLocation()
+    let { from } = location.state || { from: { pathname: "/" } };
     const [user , setUser] = useState({
         name : '',
         email : '',
@@ -47,6 +52,8 @@ const Form = () => {
     newUser.success = true
     newUser.error =''
     setUser(newUser)
+    setLoggedInUser(newUser)
+    history.replace(from)
   })
   .catch((error) => {
     const newUser = {...user}

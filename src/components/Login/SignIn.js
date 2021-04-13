@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import firebase from "firebase/app";
 import "firebase/auth";
-import { Link  } from "react-router-dom";
+import { Link, useHistory, useLocation  } from "react-router-dom";
 import firebaseConfig from './firebase.config'
 import './Form.css'
+import { GlobalContext } from '../../App';
 
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig)
  }
 const SignIn = () => {
+    const [loggedInUser , setLoggedInUser] = useContext(GlobalContext)
+    const history = useHistory()
+    let location = useLocation()
+    let { from } = location.state || { from: { pathname: "/" } };
     const [userInfo , setUserInfo] = useState({
         name : '',
         email : '',
@@ -43,6 +48,8 @@ const SignIn = () => {
     newUserInfo.success = true
     newUserInfo.error =''
     setUserInfo(newUserInfo)
+    setLoggedInUser(newUserInfo)
+    history.replace(from)
   })
   .catch((error) => {
     const newUserInfo = {...userInfo}
