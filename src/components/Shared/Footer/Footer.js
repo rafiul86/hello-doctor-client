@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Footer.css'
-
+import firebase from "firebase/app";
+import "firebase/auth";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faInstagram, faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
 import FooterColumn from './FooterColumn/FooterColumn';
+import { useHistory } from 'react-router';
+import { GlobalContext } from '../../../App';
 
 const Footer = () => {
+    const [loggedInUser , setLoggedInUser] = useContext(GlobalContext)
+    const history = useHistory()
     const noNamed = [
         {name: "Emergency Dental Care" , link: "/emergency"},
         {name: "Check Up" , link: "/checkup"},
@@ -36,6 +41,21 @@ const Footer = () => {
         {name: "Check Up" , link: "/checkup"},
         {name: "Check Up" , link: "/checkup"}
     ]
+    const  user = firebase.auth().currentUser;
+        const handleRemoveUser = () =>{
+           if(user){
+            user.delete().then(function() {
+                    loggedInUser.email ="";
+                    sessionStorage.removeItem('token')
+                alert('User removed successfully')
+                history.push('/')
+              }).catch(function(error) {
+                // An error happened.
+              });
+           }
+
+        }
+
     return (
         <footer className="footer-area clear-both">
             <div className="container pt-5">
@@ -52,6 +72,7 @@ const Footer = () => {
                         <div className="mt-5">
                             <h6>Call now</h6>
                             <button className="btn btn-primary">+65-98765-89776</button>
+                            <p style={{cursor : 'pointer'}} onClick={handleRemoveUser}>Delete User Account</p>
                         </div>
                     </FooterColumn>
                 </div>

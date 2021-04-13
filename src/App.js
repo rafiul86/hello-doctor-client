@@ -9,6 +9,7 @@ import SignIn from './components/Login/SignIn'
 import Reset from './components/Login/Reset'
 import { createContext, useState } from 'react';
 import PrivateRoute from './components/Login/PrivateRoute';
+import HeaderMain from './components/Home/Header/HeaderMain/HeaderMain';
 
 
 
