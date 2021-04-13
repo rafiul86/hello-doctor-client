@@ -37,6 +37,7 @@ const Google = () => {
     newUser.photo = photoURL
     setUser(newUser)
     setLoggedInUser(newUser)
+    handleToken()
     history.replace(from)
   }).catch((error) => {
     
@@ -55,7 +56,13 @@ const Google = () => {
             // An error happened.
           });
     }
-        
+        const handleToken = () =>{
+            firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
+                sessionStorage.setItem('token' ,idToken)
+              }).catch(function(error) {
+                console.log(error)
+              });
+        }
 
     return (
         <div>{

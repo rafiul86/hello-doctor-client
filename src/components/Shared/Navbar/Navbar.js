@@ -10,11 +10,14 @@ import { GlobalContext } from '../../../App'
 
 
 const Navbar = () => {
+  const token = sessionStorage.getItem('token')
+  console.log(token)
   const [loggedInUser , setLoggedInUser] = useContext(GlobalContext)
       const history = useHistory()
   const handleLogout = () =>{
     const newLogger = {...loggedInUser}
     newLogger.email = ''
+    sessionStorage.removeItem('token')
     setLoggedInUser(newLogger)
     history.push('/')
   }
@@ -43,7 +46,7 @@ const Navbar = () => {
         </li>
         <li className="nav-item">
         {
-         loggedInUser.email ?  <Link className="nav-link ms-auto me-5 fs-5 fw-bolder" onClick={handleLogout}>Logout</Link> : <Link className="nav-link ms-auto me-5 fs-5 fw-bolder" to='/login'>Login</Link>
+         (loggedInUser.email || token) ?  <Link className="nav-link ms-auto me-5 fs-5 fw-bolder" onClick={handleLogout}>Logout</Link> : <Link className="nav-link ms-auto me-5 fs-5 fw-bolder" to='/login'>Login</Link>
         }
         </li>
       </ul>
