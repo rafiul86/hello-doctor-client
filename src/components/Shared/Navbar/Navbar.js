@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
+import {  useHistory, useLocation  } from "react-router-dom";
+import { GlobalContext } from '../../../App'
+
+
 const Navbar = () => {
+  const [loggedInUser , setLoggedInUser] = useContext(GlobalContext)
     return (
             <nav className="navbar navbar-expand-lg navbar-light">
   <div className="container-fluid ">
@@ -30,7 +35,7 @@ const Navbar = () => {
         <Link className="nav-link ms-auto me-5 fs-5 fw-bolder" to='/blog'>Blog</Link>
         </li>
         <li className="nav-item">
-        <Link className="nav-link ms-auto me-5 fs-5 fw-bolder" to='/login'>Login</Link>
+        <Link className="nav-link ms-auto me-5 fs-5 fw-bolder" to='/login'>{loggedInUser.email ? "Log out" : "Login" }</Link>
         </li>
         
       </ul>
