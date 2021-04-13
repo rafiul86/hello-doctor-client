@@ -1,10 +1,33 @@
 import React from 'react';
 
-const PatientDetails = ({app}) => {
-    const {name, email, phone} = app 
+const PatientDetails = ({appointment}) => {
     return (
         <div>
-            
+            <div>
+            <table className="table table-borderless">
+            <thead>
+                <tr>
+                <th className="text-secondary text-left" scope="col">Sr No</th>
+                <th className="text-secondary" scope="col">Name</th>
+                <th className="text-secondary" scope="col">Phone</th>
+                <th className="text-secondary" scope="col">Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {
+              appointment.map((app, index) => 
+                        
+              <tr>
+                  <td>{index + 1}</td>
+                  <td>{app.name}</td>
+                  <td>{app.phone}</td>
+                  <td>{app.email}</td>
+              </tr>
+              )
+                }
+            </tbody>
+        </table>
+        </div>
         </div>
     );
 };

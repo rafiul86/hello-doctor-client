@@ -1,13 +1,14 @@
 import React from 'react';
 import PatientDetails from './PatientDetails/PatientDetails';
 
+
 const PatientData = ({appointment}) => {
     return (
-        <div>
-            {
-                appointment.map(app =><PatientDetails key={app._id} app={app}></PatientDetails> )
-            }
-        </div>
+            <div>
+                {
+                    appointment.length ? <PatientDetails appointment={appointment} /> : <h3>No Data to show</h3>
+                }
+            </div> 
     );
 };
 
