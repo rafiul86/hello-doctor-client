@@ -15,7 +15,7 @@ const Dashboard = () => {
     return (
         <section>
             <Grid container spacing={2}>
-            <Grid  item xs={12} md={5} lg={4}>
+            <Grid  item xs={12} md={5} lg={2}>
          <Sidebar></Sidebar>
                 </Grid>
             <Grid item xs={10} md={5} lg={4}>
@@ -24,7 +24,7 @@ const Dashboard = () => {
         value={new Date()}
       />
                 </Grid>
-            <Grid item xs={10} md={5} lg={4}>
+            <Grid item xs={10} md={5} lg={6}>
                 <PatientData/>
                 </Grid>
             </Grid>
