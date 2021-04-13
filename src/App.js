@@ -10,6 +10,7 @@ import Reset from './components/Login/Reset'
 import { createContext, useState } from 'react';
 import PrivateRoute from './components/Login/PrivateRoute';
 import HeaderMain from './components/Home/Header/HeaderMain/HeaderMain';
+import Dashboard from './components/Dashboard/Dashboard';
 
 
 
@@ -44,6 +45,9 @@ function App() {
           </Route>
           <Route path="/reset">
           <Reset/>
+          </Route>
+          <Route path="/dashboard">
+          <Dashboard/>
           </Route>
         </Switch>
     </Router>

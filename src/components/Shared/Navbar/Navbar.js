@@ -36,7 +36,7 @@ const Navbar = () => {
         <Link className="nav-link ms-auto me-5 fs-5 fw-bolder" to='/schedule'>Book Appointment</Link>
         </li>
         <li className="nav-item">
-        <Link className="nav-link ms-auto me-5 fs-5 fw-bolder" to='/home'>Services</Link>
+        <Link className="nav-link ms-auto me-5 fs-5 fw-bolder" to='/dashboard'>Dashboard</Link>
         </li>
         <li className="nav-item">
         <Link className="nav-link ms-auto me-5 fs-5 fw-bolder" to='/home'>Contacts</Link>
