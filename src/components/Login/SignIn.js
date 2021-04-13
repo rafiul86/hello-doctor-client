@@ -14,7 +14,7 @@ const SignIn = () => {
     const history = useHistory()
     let location = useLocation()
     let { from } = location.state || { from: { pathname: "/" } };
-    const [userInfo , setUserInfo] = useState({
+    const [user , setUser] = useState({
         name : '',
         email : '',
         password : '',
@@ -34,28 +34,28 @@ const SignIn = () => {
             validAuth = checkPass && checkLength 
         }
         if(validAuth){
-            const newUserInfo = {...userInfo}
-            newUserInfo[e.target.name] = e.target.value ;
-            setUserInfo(newUserInfo)
+            const newUser = {...user}
+            newUser[e.target.name] = e.target.value ;
+            setUser(newUser)
         }
     }
 
     const handleSubmitForm = (e) =>{
-        if(userInfo.email && userInfo.password){
-            firebase.auth().signInWithEmailAndPassword(userInfo.email, userInfo.password)
+        if(user.email && user.password){
+            firebase.auth().signInWithEmailAndPassword(user.email, user.password)
   .then((userCredential) => {
-    const newUserInfo = {...userInfo}
-    newUserInfo.success = true
-    newUserInfo.error =''
-    setUserInfo(newUserInfo)
-    setLoggedInUser(newUserInfo)
+    const newUser = {...user}
+    newUser.success = true
+    newUser.error =''
+    setUser(newUser)
+    setLoggedInUser(newUser)
     history.replace(from)
   })
   .catch((error) => {
-    const newUserInfo = {...userInfo}
-    newUserInfo.error = error.message;
-    newUserInfo.success = false
-    setUserInfo(newUserInfo)
+    const newUser = {...user}
+    newUser.error = error.message;
+    newUser.success = false
+    setUser(newUser)
   });
         }
         e.preventDefault()
@@ -71,9 +71,9 @@ const SignIn = () => {
                 <input className="input" type="password" name="password" onBlur={handleBlurForm} placeholder="password" required/>
                 <br/>
                 <input className="submit-b" type="submit"/>
-                <h3 style={{color : 'red'}}>{userInfo.error}</h3>
+                <h3 style={{color : 'red'}}>{user.error}</h3>
                 {
-                    userInfo.success && <h3 style={{color : 'green'}}>Logged in successfully !!</h3>
+                    user.success && <h3 style={{color : 'green'}}>Logged in successfully !!</h3>
                 }
             </form>
             <Link to="/reset">Forgot/Reset password ?</Link>
