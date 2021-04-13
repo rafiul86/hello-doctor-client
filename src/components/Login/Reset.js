@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import firebaseConfig from './firebase.config'
 import firebase from "firebase/app";
 import "firebase/auth";
+import { useHistory } from 'react-router';
 
 
 
 const Reset = () => {
+  const history = useHistory()
     const [state,setState] = useState('')
     const handleReset = ()=>{
      const emailAddress = document.getElementById('mail').value 
@@ -13,7 +15,7 @@ const Reset = () => {
      var auth = firebase.auth();
 auth.sendPasswordResetEmail(emailAddress).then(function() {
   alert("Verification mail sent")
-  
+  history.push('/')
 }).catch(function(error) {
   console.log(error)
   setState(error)

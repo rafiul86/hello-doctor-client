@@ -36,6 +36,11 @@ const Facebook = () => {
     newUser.email = email;
     newUser.photo = photoURL
     setLoggedInUser(newUser)
+    firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
+        sessionStorage.setItem('token' ,idToken)
+      }).catch(function(error) {
+        console.log(error)
+      });
     history.replace(from)
   }).catch((error) => {
     

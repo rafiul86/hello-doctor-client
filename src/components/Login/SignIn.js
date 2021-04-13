@@ -49,6 +49,11 @@ const SignIn = () => {
     newUser.error =''
     setUser(newUser)
     setLoggedInUser(newUser)
+    firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
+        sessionStorage.setItem('token' ,idToken)
+      }).catch(function(error) {
+        console.log(error)
+      });
     history.replace(from)
   })
   .catch((error) => {
@@ -63,7 +68,7 @@ const SignIn = () => {
    
     return (
              <div>
-                 <h3>Don't have an account ? <Link to="/form">Signup here</Link> </h3> 
+                 <h3>Don't have an account ? <Link to="/login">Signup here</Link> </h3> 
                  <form onSubmit={handleSubmitForm} >
                 <input className="input" type="email" name="email" onBlur={handleBlurForm} placeholder="Email" required/>
                 <br/>
