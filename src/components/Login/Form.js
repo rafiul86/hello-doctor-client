@@ -48,13 +48,7 @@ const Form = () => {
         if(user.email && user.password){
             firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
   .then((userCredential) => {
-    const newUser = {...user}
-    newUser.success = true
-    newUser.error =''
-    setUser(newUser)
-    setLoggedInUser(newUser)
     handleLink()
-    history.replace(from)
   })
   .catch((error) => {
     const newUser = {...user}
@@ -68,9 +62,15 @@ const Form = () => {
 
     const handleLink = () =>{
         var user = firebase.auth().currentUser;
-
         user.sendEmailVerification().then(function() {
-            alert("Email sent to the ....", user.email) 
+            alert("Email sent to the ....", user.email)
+     const newUser = {...user}
+    newUser.success = true
+    newUser.error =''
+    setUser(newUser)
+    setLoggedInUser(newUser)
+    handleLink()
+    history.replace(from) 
         }).catch(function(error) {
           console.log(error)
         });
