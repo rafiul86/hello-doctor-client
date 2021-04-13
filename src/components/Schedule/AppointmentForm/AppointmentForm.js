@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import { useForm } from "react-hook-form";
@@ -17,11 +17,24 @@ const customStyles = {
 
   Modal.setAppElement('#root')
 const AppointmentForm = ({closeModal,date,openModal,modalIsOpen,appointmentOn}) => {
-
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const onSubmit = data => {
-    console.log(data)
-    closeModal()
+      data.service = appointmentOn
+      data.date = date
+      data.createdOn = new Date()
+      fetch('http://localhost:5000/addAppointment',{
+        method : "POST",
+        headers : {"content-type" : "application/json"},
+        body : JSON.stringify(data)
+      })
+      .then(res => res.json())
+      .then(success =>{
+        if(success){
+          closeModal()
+        alert('data sent to server')
+        }
+      })
+    
   }
     return (
         <div>
@@ -33,20 +46,17 @@ const AppointmentForm = ({closeModal,date,openModal,modalIsOpen,appointmentOn}) 
         >
             <h5>{date.toDateString()}</h5>
             <h1 style={{color : "green"}}>{appointmentOn}</h1>
-            <form className="appointment-form" onSubmit={handleSubmit(onSubmit)}>
-      <input className="form-input" {...register("name")} />
+    <form className="appointment-form" onSubmit={handleSubmit(onSubmit)}>
+      <input className="form-input" placeholder="name" {...register("name" ,{ required: true })} />
       <br/>
       <br/>
-      <input className="form-input" {...register("address", { required: true })} />
+      <input className="form-input" placeholder="address" {...register("address", { required: true })} />
       <br/>
       <br/>
-      <input className="form-input" {...register("address line 2", { required: true })} />
+      <input className="form-input" placeholder="email" {...register("email", { required: true })} />
       <br/>
       <br/>
-      <input className="form-input" {...register("Email", { required: true })} />
-      <br/>
-      <br/>
-      <input className="form-input" {...register("phone", { required: true })} />
+      <input className="form-input" placeholder="phone" {...register("phone", { required: true })} />
       <br/>
       <br/>
       <input type="submit" />

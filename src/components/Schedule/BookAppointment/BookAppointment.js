@@ -10,31 +10,31 @@ const BookAppointment = ({selectedDate}) => {
         id : "1"
     },
     {
-        treatment : "Dental Surgery",
+        treatment : "Dental Filling",
         time : "8.00 - 10.00 AM",
         space : "8 space available",
         id : "2"
     },
     {
-        treatment : "Dental Surgery",
+        treatment : "Flouride Treatment",
         time : "8.00 - 10.00 AM",
         space : "8 space available",
         id : "3"
     },
     {
-        treatment : "Dental Surgery",
+        treatment : "Plaque Removing",
         time : "8.00 - 10.00 AM",
         space : "8 space available",
         id : "4"
     },
     {
-        treatment : "Dental Surgery",
+        treatment : "Maxilofacial Surgery ",
         time : "8.00 - 10.00 AM",
         space : "8 space available",
         id : "5"
     },
     {
-        treatment : "Dental Surgery",
+        treatment : "Oral Surgery",
         time : "8.00 - 10.00 AM",
         space : "8 space available",
         id : "6"
