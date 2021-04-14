@@ -12,6 +12,9 @@ import PrivateRoute from './components/Login/PrivateRoute';
 import HeaderMain from './components/Home/Header/HeaderMain/HeaderMain';
 import Dashboard from './components/Dashboard/Dashboard';
 import AllPatients from './components/Dashboard/AllPatients/AllPatients';
+import Prescriptions from './components/Dashboard/Prescriptions/Prescriptions';
+import Admin from './components/Dashboard/Admin/Admin';
+import Statistics from './components/Dashboard/Statistics/Statistics';
 
 
 
@@ -52,6 +55,15 @@ function App() {
           </Route>
           <Route path="/allpatients">
           <AllPatients/>
+          </Route>
+          <Route path="/prescriptions">
+          <Prescriptions/>
+          </Route>
+          <Route path="/admin">
+          <Admin/>
+          </Route>
+          <Route path="/statistics">
+          <Statistics/>
           </Route>
         </Switch>
     </Router>

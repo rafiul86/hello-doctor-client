@@ -24,16 +24,16 @@ const Dashboard = () => {
     return (
         <section>
             <Grid container spacing={2}>
-            <Grid  item xs={12} md={5} lg={2}>
+            <Grid  item xs={12} md={2} lg={2}>
          <Sidebar></Sidebar>
                 </Grid>
-            <Grid item xs={10} md={5} lg={4}>
+            <Grid item xs={12} md={5} lg={4}>
             <Calendar
         onChange={handleDateChange}
         value={new Date()}
       />
                 </Grid>
-            <Grid item xs={10} md={5} lg={6}>
+            <Grid item xs={12} md={5} lg={6}>
                 <PatientData appointment={appointment} />
                 </Grid>
             </Grid>
