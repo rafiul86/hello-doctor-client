@@ -4,6 +4,7 @@ import './Sidebar.css'
 const Sidebar = () => {
     return (
 <div class="sidebar">
+<Link to='/dashboard'>Dashboard</Link>
   <Link to='/prescriptions'>Prescription</Link>
   <Link to='/statistics'>Patients Management</Link>
   <Link to='/allpatients'>Patients</Link>
