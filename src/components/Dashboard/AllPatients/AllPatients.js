@@ -16,6 +16,7 @@ const AllPatients = () => {
          <Sidebar></Sidebar>
                 </Grid>
             <Grid item xs={12} md={5} lg={10}>
+            <h1 className="text-center">Patient Details</h1>
             <ShowPatients patients={patients}></ShowPatients>
                 </Grid>
             </Grid>

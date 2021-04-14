@@ -4,7 +4,9 @@ import PatientChart from './PatientChart/PatientChart';
 const ShowPatients = ({patients}) => {
     return (
         <div>
-            <PatientChart patients={patients}></PatientChart>
+            {
+                patients.length ? <PatientChart patients={patients}></PatientChart> : <h1>No Data to Show</h1>
+            }
         </div>
     );
 };

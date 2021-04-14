@@ -2,24 +2,6 @@ import { Button } from 'bootstrap';
 import React, { useState } from 'react';
 
 const PatientChart = ({patients}) => {
-    const [color , setColor] = useState({
-        maxHeight : "5px",
-        width : "15px",
-        backgroundColor : "blue",
-        margin : "1px solid white",
-        borderRadius : "5px",
-        cursor : "pointer"
-    })
-    const handlePatient = () =>{
-        const design2 = {
-            maxHeight : "5px",
-            width : "15px",
-            backgroundColor : "pink",
-            margin : "1px solid white",
-            borderRadius : "5px",
-        } 
-        setColor(design2)
-    }
     return (
         <div>
             <div>
@@ -32,7 +14,6 @@ const PatientChart = ({patients}) => {
                 <th className="text-secondary" scope="col">Date</th>
                 <th className="text-secondary" scope="col">Phone</th>
                 <th className="text-secondary" scope="col">Email</th>
-                <th className="text-secondary" scope="col">Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -46,7 +27,6 @@ const PatientChart = ({patients}) => {
                   <td>{patient.date}</td>
                   <td>{patient.phone}</td>
                   <td>{patient.email}</td>
-                  <td onClick={handlePatient} style={color}>Pending</td>
               </tr>
               )
                 }
