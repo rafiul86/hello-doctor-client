@@ -6,9 +6,9 @@ const Sidebar = () => {
         <div>
 <div class="sidebar">
   <Link to='/prescription'>Prescription</Link>
-  <Link to='/appointment'>appointment</Link>
-  <Link to='/patients'>patients</Link>
-  <Link to='/settings'>settings</Link>
+  <Link to='/appointment'>Appointments</Link>
+  <Link to='/allpatients'>Patients</Link>
+  <Link to='/settings'>Settings</Link>
 </div>
 
         </div>
