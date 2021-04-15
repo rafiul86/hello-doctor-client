@@ -1,22 +1,25 @@
 import { Grid } from '@material-ui/core';
 import PatientData from './PatientData/PatientData';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
 import Sidebar from './Sidebar/Sidebar';
-
+import {GlobalContext} from '../../App'
 
   
 const Dashboard = () => {
+    const [loggedInUser , setLoggedInUser] = useContext(GlobalContext)
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [appointment,setAppointment] = useState([])
+    const email = loggedInUser.email
+    console.log(loggedInUser.email)
    const  handleDateChange = (date)=>{
     setSelectedDate(date)
    }
         useEffect(()=>{
-                fetch('http://localhost:5000/appointmentByDate',{
+                fetch('http://localhost:5000/appointmentsByDate',{
                     method : "POST",
                     headers : {'content-type' : 'application/json'},
-                    body : JSON.stringify({date : selectedDate})
+                    body : JSON.stringify({date : selectedDate , email : loggedInUser.email })
                 })
                 .then(res => res.json())
                 .then(app => setAppointment(app))

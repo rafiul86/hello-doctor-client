@@ -22,6 +22,7 @@ import Statistics from './components/Dashboard/Statistics/Statistics';
  export const GlobalContext = createContext()
 function App() {
   const [loggedInUser , setLoggedInUser] = useState({})
+  console.log(loggedInUser.email)
   return (
     <GlobalContext.Provider value={[loggedInUser , setLoggedInUser]}>
     <Router>
