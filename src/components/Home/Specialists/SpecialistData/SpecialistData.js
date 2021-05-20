@@ -24,7 +24,9 @@ const SpecialistData = ({doctor}) => {
         <Card className={classes.root}>
             
       <CardActionArea>
+      
         <img className="img-fluid" src={`http://localhost:5000/${doctor.img}`} alt=""/>
+      
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
            {doctor.name}
